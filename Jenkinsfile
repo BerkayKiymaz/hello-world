@@ -9,13 +9,13 @@ pipeline {
 
   stages {
 
-    stage("Git Checkout") {
-      steps {
-        script {
-           sh "git clone https://github.com/BerkayKiymaz/hello-world.git"
-        }
-      }
-    }
+    // stage("Git Checkout") {
+    //   steps {
+    //     script {
+    //        sh "git clone https://github.com/BerkayKiymaz/hello-world.git"
+    //     }
+    //   }
+    // }
 
     stage("Maven Build") {
       steps {

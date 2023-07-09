@@ -20,11 +20,31 @@ pipeline {
     stage("Maven Build") {
       steps {
         script {
-          sh "mvn clean install"
+          sh "mvn compile"
+          sh "echo Maven compile has completed!"
         }
       }
     }
-
+    
+    stage("Maven Test") {
+      steps {
+        script {
+          sh "mvn test"
+          sh "echo Maven test has completed!"
+        }
+      }
+    }
+    
+    stage("Maven Package") {
+      steps {
+        script {
+          sh "mvn package"
+          sh "echo Maven package has completed!"
+        }
+      }
+    }
+    
+    
 
     // stage("Build & Push Docker Image") {
     //   steps {

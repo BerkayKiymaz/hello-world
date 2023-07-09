@@ -9,13 +9,13 @@ pipeline {
 
   stages {
 
-    // stage("Git Checkout") {
-    //   steps {
-    //     script {
-    //        sh "git clone https://github.com/BerkayKiymaz/hello-world.git"
-    //     }
-    //   }
-    // }
+    stage("Git Checkout") {
+      steps {
+        script {
+           sh "git clone https://github.com/BerkayKiymaz/hello-world.git"
+        }
+      }
+    }
 
     stage("Maven Build") {
       steps {
@@ -26,15 +26,15 @@ pipeline {
     }
 
 
-    stage("Build & Push Docker Image") {
-      steps {
-        script {
-          sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-          sh "docker build -t dash18/cicd-java-maven ."
-          sh "docker push dash18/cicd-java-maven"
-        }
-      }
-    }
+    // stage("Build & Push Docker Image") {
+    //   steps {
+    //     script {
+    //       sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+    //       sh "docker build -t dash18/cicd-java-maven ."
+    //       sh "docker push dash18/cicd-java-maven"
+    //     }
+    //   }
+    // }
 
   //   stage("Apply the Kubernetes files") {
   //     steps {
